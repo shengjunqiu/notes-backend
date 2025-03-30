@@ -6,10 +6,22 @@
     "dev": "bun run --watch src/index.ts"
   },
   "dependencies": {
-    "elysia": "latest"
+    "@elysiajs/bearer": "^1.2.0",
+    "@elysiajs/graphql-yoga": "^1.2.0",
+    "@graphql-tools/schema": "^10.0.23",
+    "@prisma/client": "^6.5.0",
+    "bcryptjs": "^3.0.2",
+    "elysia": "latest",
+    "graphql": "^16.10.0",
+    "graphql-yoga": "^5.13.2",
+    "ioredis": "^5.6.0",
+    "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "@types/bcryptjs": "^3.0.0",
+    "@types/jsonwebtoken": "^9.0.9",
+    "bun-types": "latest",
+    "prisma": "^6.5.0"
   },
   "module": "src/index.js"
 }
