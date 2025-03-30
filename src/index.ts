@@ -1,12 +1,11 @@
 // src/index.ts
 import { Elysia } from 'elysia';
 import { yoga } from '@elysiajs/graphql-yoga';
-import jwt, { Secret, SignOptions } from 'jsonwebtoken';
+import jwt, { Secret } from 'jsonwebtoken';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import { typeDefs } from './schema';
 import { resolvers } from './resolvers';
 import { prisma } from './lib/prisma';
-import { redis } from './lib/redis';
 import { Context, BearerPayload } from './types';
 import { config } from './config';
 import { createLogger } from './services/logger';
@@ -22,10 +21,6 @@ const schema = makeExecutableSchema({
 
 // 明确定义JWT密钥，确保类型正确
 const jwtSecret: Secret = config.jwt.secret;
-
-// 确保expiresIn是有效的类型
-// 可以使用类型断言或明确定义有效的值
-const jwtExpiresIn: string | number = config.jwt.expiresIn;
 
 const app = new Elysia()
   .get('/health', () => {
